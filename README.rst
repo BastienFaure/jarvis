@@ -16,11 +16,11 @@ Jarvis
 Jarvis is a very simple pentest companion that provides the following features:
 
 * penetration tests results directory management
-* unified structure for each assessment
+* unified structure for all assessments
 * hooks for useful commands and automated output saving
 * unified command history file
 
-It is fully written with Python and is designed to be easily maintainable.
+It is fully written in Python and is designed to be easily maintainable.
 
 Command hooking
 ===============
@@ -42,7 +42,7 @@ See `install`_
 Usage
 =====
 
-Once installed, you can continue to use your favorites pentest tools without problems. 
+Once installed, you can continue to use your favorite pentest tools without problems. 
 
 For using Jarvis, you will have to provide a ``/etc/jarvis.conf`` file::
 
@@ -62,12 +62,12 @@ For using Jarvis, you will have to provide a ``/etc/jarvis.conf`` file::
 
 Here is a quick description of available options (all of them are mandatory):
 
-* ``pentests_directory`` : path to the file that will contain all the paths to performed pentests
+* ``pentests_history`` : path to the file that will contain all the paths to performed pentests
 * ``user_directory`` : since a pentest is supposed to be performed by several persons, this is the name of your directory within the pentest's one
 * ``output_directory`` : the directory within your user's directory that will contain all records produced by available hooks
-* ``pentest_tree`` : this is a very important one, it describes the structure of your pentest directory that will be created after a ``pentest init``. For the moment, I'm too lazy for creating directories accordingly to previously described options, but this should come soon. Note that some commands will obviously fail if you do not create ``user_directory`` or ``output_directory``
+* ``pentest_tree`` : this is a very important configuration, it describes the structure of your pentest directory that will be created after a ``pentest init``. For the moment, I'm too lazy for creating directories according to previously described options so the directory tree must be fully described in this setting. This advanced feature should come soon. Note that some commands will obviously fail if you do not create ``user_directory`` or ``output_directory``
 * ``notesfiles`` : the file that will be used for taking notes
-* ``interface`` : the network interface through which test are going made
+* ``interface`` : the network interface through which test are going to be performed
 * ``editor`` : your preferred editor (``vim``, ``emacs``, whatever)
 
 If you want to start a new pentest, run the following commands::
