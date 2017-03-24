@@ -2,9 +2,12 @@
 Installation instructions
 =========================
 
+User installation
+=================
+
 Jarvis can be installed using pip::
 
-    $ python -m pip install jarvis
+    $ python -m pip install jarvis-pentest
 
 This command will fetch the archive and its dependencies from the internet and install them. 
 
