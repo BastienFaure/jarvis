@@ -34,7 +34,9 @@ Basically, each command exposed by Jarvis is a specific method called on a Pytho
 Installation
 ============
 
-See `install <INSTALL.rst>`
+See `install`_
+
+.. _relative link: INSTALL.rst
 
 
 Usage
