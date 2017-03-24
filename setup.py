@@ -88,8 +88,6 @@ setup(
 	# Other configurations
 	zip_safe=False,
 	platforms='any',
-	download_url = 'https://github.com/BastienFaure/jarvis/archive/0.1.tar.gz',
-
 	# entry points
 	entry_points=jarvis_entry_points,
 )
