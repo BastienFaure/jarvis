@@ -29,7 +29,7 @@ In order to avoid conflicts with distros packages or manually compiled/installed
 
 Then set the console scripts location at the top of your path::
 
-	# echo 'export PATH="/opt/jarvis:$PATH"' > /etc/profile.d/jarvis.sh'
+	# echo 'export PATH="/opt/jarvis:$PATH"' > /etc/profile.d/jarvis.sh
 
 Troubleshoot
 ------------
