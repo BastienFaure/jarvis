@@ -53,8 +53,9 @@ setup(
 	version=version,
 	author='b0z',
 	author_email='bastien@faure.io',
-	url='',
-	description='A short description for your project.',
+	url='https://github.com/BastienFaure/jarvis',
+	licence='MIT',
+	description='The pentest companion',
 	long_description=codecs.open('README.rst', 'rb', 'utf8').read(),
 	cmdclass={
 		'develop': PostDevelopCommand,
@@ -87,6 +88,7 @@ setup(
 	# Other configurations
 	zip_safe=False,
 	platforms='any',
+	download_url = 'https://github.com/BastienFaure/jarvis/archive/0.1.tar.gz',
 
 	# entry points
 	entry_points=jarvis_entry_points,
