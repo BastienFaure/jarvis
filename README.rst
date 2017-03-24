@@ -36,7 +36,7 @@ Installation
 
 See `install`_
 
-.. _relative link: INSTALL.rst
+.. _install: INSTALL.rst
 
 
 Usage
