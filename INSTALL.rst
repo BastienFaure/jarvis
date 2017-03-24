@@ -20,7 +20,7 @@ System-wide installation
 You might prefer to install it system-wide. In this case, run the following commands::
 
 	# mkdir /opt/jarvis
-	# pip install --install-option="--install-scripts=/opt/jarvis/" dist/jarvis-0.0.0.tar.gz
+	# pip install --install-option="--install-scripts=/opt/jarvis/" jarvis-pentest
 
 In order to avoid conflicts with distros packages or manually compiled/installed binaries, console scrits are placed under ``/opt/jarvis``.
 
