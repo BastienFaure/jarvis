@@ -19,8 +19,10 @@ Jarvis is a very simple pentest companion that provides the following features:
 * unified structure for all assessments
 * hooks for useful commands and automated output saving
 * unified command history file
+* easy way to take screenshots
+* creation of an easily reachable symlink that always point to your current pentest
 
-It is fully written in Python and is designed to be easily maintainable.
+It is fully written in Python and is designed to be easily extended.
 
 Command hooking
 ===============
@@ -69,6 +71,8 @@ Here is a quick description of available options (all of them are mandatory):
 * ``notesfiles`` : the file that will be used for taking notes
 * ``interface`` : the network interface through which test are going to be performed
 * ``editor`` : your preferred editor (``vim``, ``emacs``, whatever)
+
+Please note that currently, the creation of the ``img`` is mandatory for using screenshot features. This may change in future releases.
 
 If you want to start a new pentest, run the following commands::
 

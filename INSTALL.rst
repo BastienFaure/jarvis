@@ -31,6 +31,14 @@ Then set the console scripts location at the top of your path::
 
 	# echo 'export PATH="/opt/jarvis:$PATH"' > /etc/profile.d/jarvis.sh
 
+External dependancies
+=====================
+
+There are two non-Python dependancies that are used for managing screenshots::
+
+	# apt-get install zenity pinta imagemagick
+
+
 Troubleshoot
 ------------
 
