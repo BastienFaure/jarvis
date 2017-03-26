@@ -14,7 +14,7 @@ build/
 dist/
 
 # Python-boilerplate auto generated files
-src/jarvis/__meta__.py
+src/pentest/__meta__.py
 
 # IDEs
 .idea/
