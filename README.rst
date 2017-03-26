@@ -24,6 +24,8 @@ Jarvis is a very simple pentest companion that provides the following features:
 
 It is fully written in Python and is designed to be easily extended.
 
+**This project is currently under development and many bugs may appear, do not hesitate to open issues or submit pull requests**
+
 Command hooking
 ===============
 
