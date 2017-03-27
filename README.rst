@@ -26,14 +26,6 @@ It is fully written in Python and is designed to be easily extended.
 
 **This project is currently under development and many bugs may appear, do not hesitate to open issues or submit pull requests**
 
-Command hooking
-===============
-
-As a pentester, I often faced with difficulties related to output recording. Sometimes, a very looonnnng ``nmap`` scan launched without output options may be very painful due to the lack of exploitable files. I'm not even talking about closed terminals containing juicy outputs that may lack in a security assessment report.
-
-For these reasons, I decided to implement a command hooking feature that would automatically add output options to command lines and record outputs if such options would not exist.
-
-Basically, each command exposed by Jarvis is a specific method called on a Python. This method retrieves the supplied command line, adds arguments and patches the command lines, and finally runs the built command in a patched environnement.
 
 Installation
 ============
@@ -82,3 +74,12 @@ If you want to start a new pentest, run the following commands::
 	$ pentest init
 
 The first command will append an entry inside the pentests history file. The second will create your pentest directory structure.
+
+Command hooking
+===============
+
+As a pentester, I often faced with difficulties related to output recording. Sometimes, a very looonnnng ``nmap`` scan launched without output options may be very painful due to the lack of exploitable files. I'm not even talking about closed terminals containing juicy outputs that may lack in a security assessment report.
+
+For these reasons, I decided to implement a command hooking feature that would automatically add output options to command lines and record outputs if such options would not exist.
+
+Basically, each command exposed by Jarvis is a specific method called on a Python class. This method retrieves the supplied command line, adds arguments and patches the command lines, and finally runs the built command in a patched environnement.
