@@ -25,6 +25,10 @@ You might prefer to install it system-wide. In this case, run the following comm
 	# mkdir /opt/jarvis
 	# pip install --install-option="--install-scripts=/opt/jarvis/" jarvis-pentest
 
+Sometimes, the version available on Pypi is somehow "far away" from the bleeding edge, and you may want to pull the last available version::
+
+	# pip install --install-option="--install-scripts=/opt/jarvis/" git+https://github.com/BastienFaure/jarvis
+
 In order to avoid conflicts with distros packages or manually compiled/installed binaries, console scrits are placed under ``/opt/jarvis``.
 
 Then set the console scripts location at the top of your path::
