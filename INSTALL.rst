@@ -19,7 +19,12 @@ If you've downloaded the tarball, unpack it, and execute::
 
     $ python setup.py install --user
 
-When Jarvis is installed in user-land, console scripts are usually installed in ``~/.local/bin/``, and you should make sure that this directory is at the top of your ``$PATH``. This heavily relies on your shell but should be easily configurable.
+When Jarvis is installed in user-land, console scripts are usually installed in ``~/.local/bin/``, and you should make sure that this directory is at the top of your ``$PATH``. This heavily relies on your shell but can be configured through the ``~/.profile`` file::
+
+	$ cat ~/.profile
+	export PATH="~/.local/bin:$PATH"
+
+NOTE that Jarvis may not be working until a reboot since profile files are read only at login time. You can source files manually for instant use.
 
 System-wide installation
 ========================
@@ -39,7 +44,7 @@ Then set the console scripts location at the top of your path::
 
 	# echo 'export PATH="/opt/jarvis:$PATH"' > /etc/profile.d/jarvis.sh
 
-NOTE that Jarvis may not be working until a reboot since profile files are read only 
+NOTE that Jarvis may not be working until a reboot since profile files are read only at login time. You can source files manually for instant use.
 
 External dependancies
 =====================
