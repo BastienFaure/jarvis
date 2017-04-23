@@ -9,7 +9,11 @@ Jarvis can be installed using pip::
 
     $ python -m pip install jarvis-pentest
 
-This command will fetch the archive and its dependencies from the internet and install them. 
+Sometimes, the version available on Pypi is somehow "far away" from the bleeding edge, and you may want to pull the last available version:
+    
+    $ python -m pip install git+https://github.com/BastienFaure/jarvis
+    
+Theses commands will fetch the package and its dependencies from the internet and install them. 
 
 If you've downloaded the tarball, unpack it, and execute::
 
@@ -38,9 +42,16 @@ Then set the console scripts location at the top of your path::
 External dependancies
 =====================
 
-There are two non-Python dependancies that are used for managing screenshots::
+There are two non-Python dependancies that are used for managing screenshots.
 
-	# apt-get install zenity pinta imagemagick
+Debian::
+
+	# apt-get install zenity pinta imagemagick python-dev
+
+Fedora/Redhat::
+
+	# dnf install python-devel zenity imagemagick pinta
+	
 
 
 Troubleshoot
