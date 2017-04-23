@@ -9,7 +9,7 @@ Jarvis can be installed using pip::
 
     $ python -m pip install jarvis-pentest
 
-Sometimes, the version available on Pypi is somehow "far away" from the bleeding edge, and you may want to pull the last available version:
+Sometimes, the version available on Pypi is somehow "far away" from the bleeding edge, and you may want to pull the last available version::
     
     $ python -m pip install git+https://github.com/BastienFaure/jarvis
     
