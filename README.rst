@@ -55,6 +55,7 @@ For using Jarvis, you will have to provide a ``/etc/jarvis.conf`` file::
 	notesfiles = notes.txt
 	interface = eth0
 	editor = vim
+	env_pentest_dir = P
 
 Here is a quick description of available options (all of them are mandatory):
 
@@ -65,6 +66,7 @@ Here is a quick description of available options (all of them are mandatory):
 * ``notesfiles`` : the file that will be used for taking notes
 * ``interface`` : the network interface through which test are going to be performed
 * ``editor`` : your preferred editor (``vim``, ``emacs``, whatever)
+* ``env_pentest_dir`` : the name of the environnement variable to set as a shortcut to the current pentest directory
 
 Please note that currently, the creation of the ``img`` is mandatory for using screenshot features. This may change in future releases.
 
