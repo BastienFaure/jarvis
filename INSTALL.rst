@@ -29,6 +29,8 @@ NOTE that Jarvis may not be working until a reboot since profile files are read 
 System-wide installation
 ========================
 
+**BE CAREFUL, REMOVING JARVIS WITH PIP WILL ERASE BINARIES ON YOUR SYSTEM, THERE IS CURRENTLY A BUG IN PIP**
+
 You might prefer to install it system-wide. In this case, run the following commands::
 
 	# mkdir /opt/jarvis
