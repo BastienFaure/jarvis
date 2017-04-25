@@ -55,6 +55,7 @@ For using Jarvis, you will have to provide a ``/etc/jarvis.conf`` file::
 	pentests_history = /home/user/.pentests_history
 	user_directory = user
 	output_directory = records
+	img_directory = img
 	pentest_tree = [
 		"%(user_directory)s",
 		"%(user_directory)s/img",
@@ -70,6 +71,7 @@ Here is a quick description of available options (all of them are mandatory):
 * ``pentests_history`` : path to the file that will contain all the paths to performed pentests
 * ``user_directory`` : since a pentest is supposed to be performed by several persons, this is the name of your directory within the pentest's one
 * ``output_directory`` : the directory within your user's directory that will contain all records produced by available hooks
+* ``img_directory`` : the directory within your user's directory that will contain screenshots
 * ``pentest_tree`` : this is a very important configuration, it describes the structure of your pentest directory that will be created after a ``pentest init``. For the moment, I'm too lazy for creating directories according to previously described options so the directory tree must be fully described in this setting. This advanced feature should come soon. Note that some commands will obviously fail if you do not create ``user_directory`` or ``output_directory``
 * ``notesfiles`` : the file that will be used for taking notes
 * ``interface`` : the network interface through which test are going to be performed
