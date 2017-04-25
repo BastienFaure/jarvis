@@ -146,7 +146,7 @@ Let's try running an ``nmap`` scan, which is one of the currently available hook
 	Nmap scan report for localhost.localdomain (127.0.0.1)
 	[...]
 
-Know, the ``commands.log`` file is populated::
+Now, the ``commands.log`` file is populated::
 
 	$ cat commands.log 
 	[192.168.1.51] 2017-04-25 22:04:31,507 :: 'nmap' '-oA' '/tmp/assessment/marauder/records/nmap-127.0.0.1-2017-04-25-220431' '127.0.0.1'
@@ -160,7 +160,7 @@ You can see that output options have been added, and output files created automa
 Disable hooking at runtime
 --------------------------
 
-Sometimes, many **many** commands are typed and recording is not especially needed. Jarvis allows users to circumvent the hooking mechanism by using the ``nojarvis`` option. This option will be consumed by Jarvis witout consequences on subsequent commands.
+Sometimes, many **many** commands are typed and recording is not especially needed. Jarvis allows users to circumvent the hooking mechanism by using the ``--nojarvis`` option. This option will be consumed by Jarvis witout consequences on subsequent commands.
 
 Screenshots
 -----------
