@@ -180,3 +180,35 @@ You can then list your screenshots::
 And edit any screenshot with ``pinta``, which is one of the most convenient *quickwin* editor from my point of view::
 
 	$ pentest edit screen-1.png
+
+Adding a new hook
+=================
+
+TODO
+
+Extending Jarvis
+================
+
+Jarvis is mainly a python module that can be used for various purposes based on pentest needings. The `sharify`_ script was developed for saving files efficiently when crawling CIFS share. Usually you do::
+
+	$ smbclient -U "domain\user%password" //host/share
+	cd directory
+	get file
+
+``file`` is then stored in the same directory from which you ran ``smbclient``. ``sharify`` consumes the Jarvis setup to drop downloaded files in the ``files`` directory within your current pentest directory.
+
+	$ sharify -u USERNAME -p PASSWORD -d DOMAIN //host/share
+	cd directory
+	get file
+	
+	$ tree /path/to/pentest/<user>/files
+	/path/to/pentest/<user>/files
+	└── host
+	    ├── share1
+	    │   ├── file-1
+	    │   └── file-2
+	    └── share2
+		├── file-1
+		└── file-2	
+
+.. _sharify: https://github.com/BastienFaure/jarvis/blob/master/tools/sharify
