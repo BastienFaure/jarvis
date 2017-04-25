@@ -79,8 +79,7 @@ setup(
 	packages=find_packages('src'),
 	install_requires=[
             "netifaces",
-            "slugify",
-			"pkgutil"
+            "slugify"
 	],
 	extras_require={
 		'dev': [
