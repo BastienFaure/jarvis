@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import argparse
+import os
+from os.path import join as buildpath
+from pentest.manager import JarvisManager
+import subprocess
+
+
+class SMBConnection(object):
+
+	def __init__(self, username, domain, password, target):
+		self.username = username
+		self.domain = domain
+		self.password = password
+		self.target = target.split('/')[-2]
+		self.share = target.split('/')[-1]
+		self.manager = JarvisManager()
+
+	def connect(self):
+
+		base = buildpath(self.manager.current, self.manager.config.userdir, "files")
+		if not os.path.isdir(buildpath(base, self.target)):
+			os.mkdir(buildpath(base, self.target))
+		if not os.path.isdir(buildpath(base, self.target, self.share)):
+			os.mkdir(buildpath(base, self.target, self.share))
+		os.chdir(buildpath(base, self.target, self.share))
+		subprocess.call(["smbclient", "-U", "%s/%s%%%s" % (self.domain, self.username, self.password), "//%s/%s" % (self.target, self.share)])
+
+
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser()
+	parser.add_argument('-u', '--username', help="The username", required=True)
+	parser.add_argument('-p', '--password', help="The password", required=True)
+	parser.add_argument('-d', '--domain', help="The domain", required=True)
+	parser.add_argument('target', metavar="TARGET", help="The target to connect on")
+	args = parser.parse_args()
+
+	smb = SMBConnection(args.username, args.domain, args.password, args.target)
+	smb.connect()
