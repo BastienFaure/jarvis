@@ -113,3 +113,6 @@ You can see that output options have been added, and output files created automa
 	nmap-127.0.0.1-2017-04-25-220347.nmap
 
 
+Taking screenshot is also made easy with ``pentest screenshot``. This command will run the Imagemagick ``import`` command with manual selection options. Once the screenshot is taken, you are prompted for a screenshot name (I used ``zenity`` for this purpose)::
+
+.. image:: doc/screenshot.png
