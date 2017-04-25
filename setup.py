@@ -78,6 +78,8 @@ setup(
 	package_dir={'': 'src'},
 	packages=find_packages('src'),
 	install_requires=[
+            "netifaces",
+            "slugify"
 	],
 	extras_require={
 		'dev': [
