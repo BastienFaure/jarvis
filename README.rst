@@ -157,6 +157,10 @@ You can see that output options have been added, and output files created automa
 	nmap-127.0.0.1-2017-04-25-220347.gnmap  nmap-127.0.0.1-2017-04-25-220347.xml
 	nmap-127.0.0.1-2017-04-25-220347.nmap
 
+Output files naming follows a basic format. Note that naming is really efficient when **targets** are placed at **regular** positions. For example, ``nmap`` will process the target independantly from its position within the command line. This is achieved through a huge parsing effort on the command line that I don't want to reimplement in Python and for each hook. Thus, it is recommend to put the target **at the end of the command line** when tools are agnostic about its position.
+
+Finally, it should be highlighted that some command line arguments automatically disable the hooking mechanism. Especially, when help is invoked (``-h`` or ``--help``), or when output options are passed (basically ``-oJ``, ``-oA`` or whatever in ``nmap``), hooking is not performed.
+
 Disable hooking at runtime
 --------------------------
 
