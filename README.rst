@@ -195,7 +195,7 @@ Jarvis is mainly a python module that can be used for various purposes based on 
 	cd directory
 	get file
 
-``file`` is then stored in the same directory from which you ran ``smbclient``. ``sharify`` consumes the Jarvis setup to drop downloaded files in the ``files`` directory within your current pentest directory.
+``file`` is then stored in the same directory from which you ran ``smbclient``. ``sharify`` consumes the Jarvis setup to drop downloaded files in the ``files`` directory within your current pentest directory::
 
 	$ sharify -u USERNAME -p PASSWORD -d DOMAIN //host/share
 	cd directory
