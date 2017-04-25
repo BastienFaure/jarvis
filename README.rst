@@ -26,6 +26,15 @@ It is fully written in Python and is designed to be easily extended.
 
 **This project is currently under development and many bugs may appear, do not hesitate to open issues or submit pull requests**
 
+Command hooking
+===============
+
+As a pentester, I often faced with difficulties related to output recording. Sometimes, a very looonnnng ``nmap`` scan launched without output options and cancelled may be very painful due to the lack of exploitable files. I'm not even talking about closed terminals containing juicy outputs that may lack in a security assessment report.
+
+For these reasons, I decided to implement a command hooking feature that would automatically add output options to command lines and record outputs if such options would not exist.
+
+Basically, each command exposed by Jarvis is a specific method called on a Python class. This method retrieves the supplied command line, adds arguments and patches the command lines, and finally runs the built command in a patched environnement.
+
 
 Installation
 ============
@@ -75,11 +84,32 @@ If you want to start a new pentest, run the following commands::
 
 The first command will append an entry inside the pentests history file. The second will create your pentest directory structure.
 
-Command hooking
-===============
+After init, the pentest directory is created::
 
-As a pentester, I often faced with difficulties related to output recording. Sometimes, a very looonnnng ``nmap`` scan launched without output options may be very painful due to the lack of exploitable files. I'm not even talking about closed terminals containing juicy outputs that may lack in a security assessment report.
+	$ tree /path/to/pentest
+	/path/to/pentest
+	└── user
+	    ├── img
+	    ├── records
+	    └── scripts
 
-For these reasons, I decided to implement a command hooking feature that would automatically add output options to command lines and record outputs if such options would not exist.
+Let's try running an ``nmap`` scan, which is one of the currently available hooks::
 
-Basically, each command exposed by Jarvis is a specific method called on a Python class. This method retrieves the supplied command line, adds arguments and patches the command lines, and finally runs the built command in a patched environnement.
+	$ nmap 127.0.0.1
+
+	Starting Nmap 7.12 ( https://nmap.org ) at 2017-04-25 21:59 CEST
+	Nmap scan report for localhost.localdomain (127.0.0.1)
+	[...]
+
+Know, the ``commands.log`` file is populated::
+
+	$ cat commands.log 
+	[192.168.1.51] 2017-04-25 22:04:31,507 :: 'nmap' '-oA' '/tmp/assessment/marauder/records/nmap-127.0.0.1-2017-04-25-220431' '127.0.0.1'
+
+You can see that output options have been added, and output files created automatically::
+
+	$ ls records/
+	nmap-127.0.0.1-2017-04-25-220347.gnmap  nmap-127.0.0.1-2017-04-25-220347.xml
+	nmap-127.0.0.1-2017-04-25-220347.nmap
+
+
