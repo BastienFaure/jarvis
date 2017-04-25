@@ -114,7 +114,26 @@ You can see that output options have been added, and output files created automa
 	nmap-127.0.0.1-2017-04-25-220347.gnmap  nmap-127.0.0.1-2017-04-25-220347.xml
 	nmap-127.0.0.1-2017-04-25-220347.nmap
 
+Disable hooking at runtime
+--------------------------
+
+Sometimes, many **many** commands are typed and recording is not especially needed. Jarvis allows users to circumvent the hooking mechanism by using the ``nojarvis`` option. This option will be consumed by Jarvis witout consequences on subsequent commands.
+
+Screenshots
+-----------
 
 Taking screenshot is also made easy with ``pentest screenshot``. This command will run the Imagemagick ``import`` command with manual selection options. Once the screenshot is taken, you are prompted for a screenshot name (I used ``zenity`` for this purpose):
 
 .. image:: doc/screenshot.png
+
+I recommend associating this command to a keybinding :-)
+
+You can then list your screenshots::
+
+	$ pentest img
+	screen-1.png
+	screen-2.png
+	
+And edit any screenshot with ``pinta``, which is one of the most convenient *quickwin* editor from my point of view::
+
+	$ pentest edit screen-1.png
