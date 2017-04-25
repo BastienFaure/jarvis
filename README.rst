@@ -47,9 +47,10 @@ See `install`_
 Usage
 =====
 
-Once installed, you can continue to use your favorite pentest tools without problems. 
+Initial configuration
+---------------------
 
-For using Jarvis, you will have to provide a ``/etc/jarvis.conf`` file::
+For using Jarvis, you will have to fill a ``/etc/jarvis.conf`` file::
 
 	[jarvis]
 	pentests_history = /home/user/.pentests_history
@@ -77,7 +78,8 @@ Here is a quick description of available options (all of them are mandatory):
 * ``interface`` : the network interface through which test are going to be performed
 * ``editor`` : your preferred editor (``vim``, ``emacs``, whatever)
 
-Please note that currently, the creation of the ``img`` is mandatory for using screenshot features. This may change in future releases.
+Pentest directory management
+----------------------------
 
 If you want to start a new pentest, run the following commands::
 
@@ -94,6 +96,47 @@ After init, the pentest directory is created::
 	    ├── img
 	    ├── records
 	    └── scripts
+
+Note that pentests are *stacked* in the ``pentests_history`` file::
+
+	$ cat .pentests_history 
+	/tmp/pentest-1
+	/tmp/pentest-2
+	/tmp/pentest-3
+
+Stopping a pentest with ``pentest stop`` will simply *pop* the last entry from the history file.
+
+You can then define useful aliases. The most explicit example is *jumping* to the current pentest with a bash alias::
+
+	alias gopentest="cd $(tail -n 1 /path/to/.pentests_history)"
+
+
+Command hooking
+---------------
+
+Jarvis is shipped with many commands hooks that can be listed::
+
+	$ pentest hooks
+	airodump
+	arpscan
+	crackmapexec
+	curl
+	dnsmap
+	dnsrecon
+	hping3
+	http
+	hydra
+	nikto
+	nmap
+	patator
+	smbclient
+	smbmap
+	sslyze
+	wfuzz
+
+Please note that Jarvis **does not** ships packages providings hookable scripts or binaries. Jarvis also expects that each hooked command should runnable as-is. Basically, *wfuzz* should be callable without Jarvis installed.
+
+	Currently, Jarvis throws an exception with the underlying command does not exist on the installed system
 
 Let's try running an ``nmap`` scan, which is one of the currently available hooks::
 
