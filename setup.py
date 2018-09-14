@@ -69,8 +69,8 @@ setup(
 		'License :: OSI Approved :: MIT License',
 		'Operating System :: POSIX :: Linux',
 		'Programming Language :: Python',
-		'Programming Language :: Python :: 2.7',
-		'Programming Language :: Python :: 2 :: Only',
+		'Programming Language :: Python :: 3.3',
+		'Programming Language :: Python :: 3 :: Only',
 		'Topic :: Software Development :: Libraries',
 	],
 
@@ -79,7 +79,7 @@ setup(
 	packages=find_packages('src'),
 	install_requires=[
 		"netifaces",
-		"slugify"
+		"python-slugify"
 	],
 	extras_require={
 		'dev': [
