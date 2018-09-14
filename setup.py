@@ -92,4 +92,5 @@ setup(
 	platforms='any',
 	# entry points
 	entry_points=jarvis_entry_points,
+	python_requires=">=3.3"
 )
