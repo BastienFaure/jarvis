@@ -55,11 +55,11 @@ There are two non-Python dependancies that are used for managing screenshots.
 
 Debian::
 
-	# apt-get install zenity pinta imagemagick python-dev
+	# apt-get install zenity pinta imagemagick python3-dev
 
 Fedora/Redhat::
 
-	# dnf install python-devel zenity imagemagick pinta
+	# dnf install python3-devel zenity imagemagick pinta
 	
 
 
