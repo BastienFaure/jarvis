@@ -54,7 +54,7 @@ setup(
 	author='b0z',
 	author_email='bastien@faure.io',
 	url='https://github.com/BastienFaure/jarvis',
-	licence='MIT',
+	license='MIT',
 	description='The pentest companion',
 	long_description=codecs.open('README.rst', 'rb', 'utf8').read(),
 	cmdclass={
@@ -92,5 +92,4 @@ setup(
 	platforms='any',
 	# entry points
 	entry_points=jarvis_entry_points,
-	python_requires=">=3.3"
 )
