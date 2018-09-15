@@ -141,25 +141,40 @@ Please note that Jarvis **does not** ships packages providings hookable scripts 
 Let's try running an ``nmap`` scan, which is one of the currently available hooks::
 
 	$ nmap 127.0.0.1
+	 Starting Nmap 7.60 ( https://nmap.org ) at 2018-09-15 11:08 CEST
+	 Nmap scan report for factory (127.0.0.1)
+	 [...]
 
-	Starting Nmap 7.12 ( https://nmap.org ) at 2017-04-25 21:59 CEST
-	Nmap scan report for localhost.localdomain (127.0.0.1)
-	[...]
-
-Now, the ``commands.log`` file is populated::
+Now, the ``commands.log`` file is populated (noted that commands are also properly escape)::
 
 	$ cat commands.log 
-	[192.168.1.51] 2017-04-25 22:04:31,507 :: 'nmap' '-oA' '/tmp/assessment/marauder/records/nmap-127.0.0.1-2017-04-25-220431' '127.0.0.1'
+	[192.168.1.19] 2018-09-15 11:08:13,978 :: nmap -oA /tmp/peni/b0z/records/nmap-127.0.0.1-2018-09-15-11-08-13 127.0.0.1
 
 You can see that output options have been added, and output files created automatically::
 
 	$ ls records/
-	nmap-127.0.0.1-2017-04-25-220347.gnmap  nmap-127.0.0.1-2017-04-25-220347.xml
-	nmap-127.0.0.1-2017-04-25-220347.nmap
+	nmap-127.0.0.1-2018-09-15-11-08-13.gnmap  nmap-127.0.0.1-2018-09-15-11-08-13.nmap
+	nmap-127.0.0.1-2018-09-15-11-08-13.xml
 
 Output files naming follows a basic format. Note that naming is really efficient when **targets** are placed at **regular** positions. For example, ``nmap`` will process the target independantly from its position within the command line. This is achieved through a huge parsing effort on the command line that I don't want to reimplement in Python and for each hook. Thus, it is recommend to put the target **at the end of the command line** when tools are agnostic about its position.
 
 Finally, it should be highlighted that some command line arguments automatically disable the hooking mechanism. Especially, when help is invoked (``-h`` or ``--help``), or when output options are passed (basically ``-oJ``, ``-oA`` or whatever in ``nmap``), hooking is not performed.
+
+Some commands don't provide output options, so recording is achieved by passing them to the ``script`` utility::
+
+	$ curl -s https://google.fr
+	$ cat records/curl-record-2018-09-15-11-13-23.txt
+	curl -s https://google.fr
+	Script started on 2018-09-15 11:13:23+02:00
+	<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<TITLE>301 Moved</TITLE></HEAD><BODY>
+	<H1>301 Moved</H1>
+	The document has moved
+	<A HREF="https://www.google.fr/">here</A>.
+	</BODY></HTML>
+
+	Script done on 2018-09-15 11:13:23+02:00
+
 
 Disable hooking at runtime
 --------------------------
