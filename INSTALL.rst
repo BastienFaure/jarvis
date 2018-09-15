@@ -7,17 +7,17 @@ User installation
 
 Jarvis can be installed using pip::
 
-    $ python -m pip install jarvis-pentest
+    $ python3 -m pip install jarvis-pentest
 
 Sometimes, the version available on Pypi is somehow "far away" from the bleeding edge, and you may want to pull the last available version::
     
-    $ python -m pip install git+https://github.com/BastienFaure/jarvis
+    $ python3 -m pip install git+https://github.com/BastienFaure/jarvis
     
 Theses commands will fetch the package and its dependencies from the internet and install them. 
 
 If you've downloaded the tarball, unpack it, and execute::
 
-    $ python setup.py install --user
+    $ python3 setup.py install --user
 
 When Jarvis is installed in user-land, console scripts are usually installed in ``~/.local/bin/``, and you should make sure that this directory is at the top of your ``$PATH``. This heavily relies on your shell but can be configured through the ``~/.profile`` file::
 
@@ -34,11 +34,11 @@ System-wide installation
 You might prefer to install it system-wide. In this case, run the following commands::
 
 	# mkdir /opt/jarvis
-	# pip install --install-option="--install-scripts=/opt/jarvis/" jarvis-pentest
+	# python3 -m pip install --install-option="--install-scripts=/opt/jarvis/" jarvis-pentest
 
 Sometimes, the version available on Pypi is somehow "far away" from the bleeding edge, and you may want to pull the last available version::
 
-	# pip install --install-option="--install-scripts=/opt/jarvis/" git+https://github.com/BastienFaure/jarvis
+	# python3 -m pip install --install-option="--install-scripts=/opt/jarvis/" git+https://github.com/BastienFaure/jarvis
 
 In order to avoid conflicts with distros packages or manually compiled/installed binaries, console scrits are placed under ``/opt/jarvis``.
 
