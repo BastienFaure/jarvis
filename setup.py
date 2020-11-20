@@ -88,7 +88,6 @@ setup(
 	},
 
 	# Other configurations
-	zip_safe=False,
 	platforms='any',
 	# entry points
 	entry_points=jarvis_entry_points,
